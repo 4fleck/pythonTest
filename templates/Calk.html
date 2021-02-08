@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+     <link rel="stylesheet" href="static/Style/StyleMain.css" type="text/css">
+</head>
+<body>
+    <h1>Calk</h1>
+    <a href="{{ url_for('index') }}">Home</a>
+    <form id="form1" method="post" action="/result">
+        <input  required type="text" name="num1">
+        <input required type="text" name="num2">
+        <button type="submit">+</button>
+       <button  onclick="$('#form1')[0].action='/res2';$('#form1').submit()">-</button>
+        <button  onclick="$('#form1')[0].action='/res3';$('#form1').submit()">/</button>
+        <button  onclick="$('#form1')[0].action='/res4';$('#form1').submit()">*</button>
+    </form>
+
+<h3>Answer list</h3>
+
+{% for Answer in answers %}
+<div>{{ Answer.num1 }}&nbsp{{ Answer.sig }}&nbsp{{ Answer.num2 }} = {{ Answer.res }} {{ Answer.err }}</div>
+{% endfor %}
+
+</body>
+</html>
